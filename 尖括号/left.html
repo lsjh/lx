@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding:0;
+            margin:0;
+        }
+        li {
+            list-style:none;
+        }
+        #wrap {
+            border:1px dashed #333;
+            margin:0 auto;
+        }
+        #wrap li {
+            width:100px;
+            height:100px;
+            text-align:center;
+            line-height:100px;
+            background:red;
+            color:#fff;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="wrap">
+
+    </ul>
+    <script>
+        let obox=document.getElementById("wrap");
+        let num=7;
+        let mid=0;                                        
+        let htm="";
+        let jl=100;
+        if(num%2){
+            mid=(num+1)/2;
+        }else {
+            mid=num/2;
+        }
+        obox.style.width=mid*jl+"px";
+        obox.style.height=num*jl+"px";
+        for(let i=0;i<num;i++) {
+            // if(i<mid){
+            //     htm+=`<li style="margin-left:${i*jl}px;">${i+1}</li>`
+            // }else {
+            //     htm+=`<li style="margin-left:${(num-(i+1))*jl}px;">${i+1}</li>`
+            // }
+            let x=i<mid?i:num-(i+1);
+            htm+=`<li style="margin-left:${x*jl}px;">${i+1}</li>`
+            
+        }
+        obox.innerHTML+=htm;
+    </script>
+</body>
+</html>
